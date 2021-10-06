@@ -34,7 +34,7 @@ let proyecto1 = {
     descripcion: `1 - Diseño y desarrollo Sistema de Usuarios con Roles y Permisos el cual se pude implementar en cualquier proyecto.
     2 - Sistema administrativo de la tienda virtual. 3 - Pasarela de pagos con Mercado Pago y Paypal`,
     web: 'https://autoservicio5026.com/',
-    img: '../potafolio/assets/img/portfolio/5.jpg'
+    img: '../portafolio/assets/img/portfolio/5.jpg'
 }
 
 let proyecto2 = {
@@ -42,7 +42,7 @@ let proyecto2 = {
     descripcionBreve: 'JavaScript, HTML, CSS, Firebase',
     descripcion: 'Juegos de Trivia y  mini red Social, con autenticacion de usuarios, historial de puntajes, ranking de los mejores jugadores. Base de datos Firebase ',
     web: 'https://emanuelcodigos.github.io/ultimoscartuchos/',
-    img: '../potafolio/assets/img/portfolio/3.jpg'
+    img: '../portafolio/assets/img/portfolio/3.jpg'
 }
 
 arrProyectos.push(proyecto1);
