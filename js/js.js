@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function(){
     animacionMenu();
     crearProyectos();
+    timerTexto();
 
 });
 
+const divModal = document.querySelector('#modal');
 function animacionMenu(){
     const mobileMenu = document.querySelector('.mobile-menu');
     mobileMenu.addEventListener('click', navegacionResponsive);
@@ -74,8 +76,6 @@ function crearProyectos(){
         
 }
 
-let culi = document.querySelector('#modal');
-
 function mostrarDatosProyecto(i){
 
     let modal = document.createElement('div');
@@ -86,11 +86,28 @@ function mostrarDatosProyecto(i){
     <button onclick="cerrar()">CERRAR</button>
     </div>
     `;
-    culi.appendChild(modal);
+    divModal.appendChild(modal);
     
 }
 
 function cerrar(modal){
-   culi.removeChild(culi.childNodes[0]);
+   divModal.removeChild(culi.childNodes[0]);
     
 }
+
+function timerTexto(){
+    let timer = setTimeout(function(){
+      let divTextos = document.querySelector('#txt-header');
+      let texto = document.createElement('h2');
+      texto.classList.add('secundario');
+      texto.innerHTML = 'Programador   ..<span></span>';
+      divTextos.appendChild(texto);
+      
+    }, 4000);
+}
+
+const formulario = document.querySelector('#formularioContacto');
+formulario.addEventListener('submit', (e)=>{
+   //e.preventDefault();
+   console.log('envioDeFormulario');
+});

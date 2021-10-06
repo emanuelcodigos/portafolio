@@ -51,13 +51,12 @@
 
         <div class="contenedor-presentacion">
 
-            <div class="texto">
+            <div class="texto" id="txt-header">
 
                 <h1 class="hola">Hola,</h1>
                 <div class="nombre">
                     <h1>Soy Emanuel,<span></span> </h1>
                 </div>
-                <h2 class="secundario animated rubberBand">Programador</h2>
             </div>
 
             <img src="assets/img/header-icon.svg" width="100%" class="animated jello">
@@ -178,10 +177,10 @@
         <section id="#contacto" class="mis-secciones bgGris margin-seccion">
             <h1>CONTACTO</h1>
 
-            <form action="" class="formulario">
-                <input type="text" placeholder="nombre" required>
-                <input type="email" placeholder="Correo electronico" readonly>
-                <textarea placeholder="Mensaje" id="" cols="30" rows="10" required></textarea>
+            <form class="formulario" id="formularioContacto" action="https://formsubmit.co/emanuelcisterna@outlook.com" method="POST">
+                <input type="text" placeholder="nombre" name="name" required>
+                <input type="email" placeholder="Correo electronico" name="email" required>
+                <textarea placeholder="Mensaje" name="menssage" cols="30" rows="10" required></textarea>
                 <input type="submit" value="Enviar Mensaje">
             </form>
 

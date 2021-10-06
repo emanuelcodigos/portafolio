@@ -60,7 +60,7 @@ body{
 
 .contenedor-mobile-menu{
     display: flex;
-    justify-content:end;
+    justify-content:right;
     padding: 1rem;
     background-color: #2b3b45;
 }
@@ -146,6 +146,8 @@ body{
     font-style: italic;
     margin: 5px 0 ;
     color: #ff8e00;
+    position: relative;
+    display: inline-block;
 }
 
 .texto .nombre h1{
@@ -163,6 +165,19 @@ body{
     background-color: #364954;
     border-left: 2px solid #2b373e;
     animation: maquina 4s alternate steps(14);
+}
+.texto .secundario .secundario-animacion{
+   display: inline-block;
+}
+.secundario span{
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 2.3rem;
+    background-color: #364954;
+    border-left: 2px solid #2b373e;
+    animation: maquina 5s alternate infinite steps(14);
+
 }
 @keyframes maquina{
 from{
@@ -191,6 +206,9 @@ from{
     }
     .texto .secundario{
         font-size: 2.5rem;
+    }
+    .secundario span{
+        height: 3.5rem;
     }
     .texto .nombre h1{
       font-size: 3.5rem;
