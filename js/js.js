@@ -1,11 +1,26 @@
 document.addEventListener('DOMContentLoaded', function(){
     animacionMenu();
-    crearProyectos();
     timerTexto();
+    getMisProyectos();
 
 });
 
+const firebaseConfig = {
+    apiKey: "AIzaSyAw3bxH5AK_4kPkY4tkzbFsPF6JIFJ2iFU",
+    authDomain: "mi-portafolio-ab85d.firebaseapp.com",
+    projectId: "mi-portafolio-ab85d",
+    storageBucket: "mi-portafolio-ab85d.appspot.com",
+    messagingSenderId: "613018203951",
+    appId: "1:613018203951:web:41a3cf1612af52d98c93da",
+    measurementId: "G-XS0QKBM15E"
+  };
+
+const app = firebase.initializeApp(firebaseConfig);
+const analytics = firebase.analytics();
+const db = firebase.firestore();
+const arrProyectos = new Array();
 const divModal = document.querySelector('#modal');
+
 function animacionMenu(){
     const mobileMenu = document.querySelector('.mobile-menu');
     mobileMenu.addEventListener('click', navegacionResponsive);
@@ -28,28 +43,6 @@ let objetos = document.querySelectorAll('.icono-habilidad').forEach(elemet=>{
 });
 
 
-const arrProyectos = new Array();
-
-let proyecto1 = {
-    titulo: 'Tienda Virtual Supermercado',
-    descripcionBreve: 'PHP, JavaScript, HTML, Css, Mysql, Firebase, MercadoPago Api',
-    descripcion: `1 - Diseño y desarrollo Sistema de Usuarios con Roles y Permisos el cual se pude implementar en cualquier proyecto.
-    2 - Sistema administrativo de la tienda virtual. 3 - Pasarela de pagos con Mercado Pago y Paypal`,
-    web: 'https://autoservicio5026.com/',
-    img: '../portafolio/assets/img/portfolio/3.jpg'
-}
-
-let proyecto2 = {
-    titulo: 'Aplicacion de Juegos Ultimos Cartuchos',
-    descripcionBreve: 'JavaScript, HTML, CSS, Firebase',
-    descripcion: 'Juegos de Trivia y  mini red Social, con autenticacion de usuarios, historial de puntajes, ranking de los mejores jugadores. Base de datos Firebase ',
-    web: 'https://emanuelcodigos.github.io/ultimoscartuchos/',
-    img: '../portafolio/assets/img/portfolio/5.jpg'
-}
-
-arrProyectos.push(proyecto1);
-arrProyectos.push(proyecto2);
-arrProyectos.push(proyecto1);
 
 function crearProyectos(){
     let divPrincipal = document.querySelector('#divProyecto');
@@ -87,12 +80,10 @@ function mostrarDatosProyecto(i){
     </div>
     `;
     divModal.appendChild(modal);
-    
 }
 
-function cerrar(modal){
-   divModal.removeChild(culi.childNodes[0]);
-    
+function cerrar(){
+   divModal.innerHTML = '';
 }
 
 function timerTexto(){
@@ -103,7 +94,7 @@ function timerTexto(){
       texto.innerHTML = 'Programador   ..<span></span>';
       divTextos.appendChild(texto);
       
-    }, 4000);
+    }, 3000);
 }
 
 const formulario = document.querySelector('#formularioContacto');
@@ -111,3 +102,21 @@ formulario.addEventListener('submit', (e)=>{
    //e.preventDefault();
    console.log('envioDeFormulario');
 });
+
+
+
+function getMisProyectos(){
+
+    db.collection('mis-proyectos').get()
+    .then(resp => {
+
+        resp.forEach(elemento=>{
+           let data = elemento.data();
+           arrProyectos.push(data);
+        });
+       crearProyectos();
+  
+    }).catch(err =>{
+       console.log(err);
+    });
+}

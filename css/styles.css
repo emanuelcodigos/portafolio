@@ -164,7 +164,7 @@ body{
     height: 2.6rem;
     background-color: #364954;
     border-left: 2px solid #2b373e;
-    animation: maquina 4s alternate steps(14);
+    animation: maquina 3s alternate steps(14);
 }
 .texto .secundario .secundario-animacion{
    display: inline-block;
@@ -176,7 +176,7 @@ body{
     height: 2.3rem;
     background-color: #364954;
     border-left: 2px solid #2b373e;
-    animation: maquina 5s alternate infinite steps(14);
+    animation: maquina 2.5s alternate infinite steps(14);
 
 }
 @keyframes maquina{
@@ -386,6 +386,11 @@ from{
     margin: auto;
     background-color: #e9e9e9;
     color:#1e2428;
+}
+@media (min-width: 768px){
+    .div-actualidad{
+        width: 100%;
+    }
 }
 .div-actualidad h1{
   margin: 0;
