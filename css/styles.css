@@ -479,6 +479,13 @@ from{
     color: rgb(243, 42, 42);
 }
 
+.visitas{
+    position: absolute;
+    text-align: center;
+    color: #e4f3f2;
+    font-weight: 900;
+    right: 10px;
+}
 
 .notblock{
     display: none;
